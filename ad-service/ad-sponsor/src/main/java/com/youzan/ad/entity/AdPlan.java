@@ -36,6 +36,7 @@ public class AdPlan {
     private Date startDate;
 
     @Column(name = "end_date")
+
     private Date endDate;
 
     @Column(name = "create_date")
