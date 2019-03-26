@@ -1,0 +1,20 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: ad-sponsor
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/day1225_1?serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/
