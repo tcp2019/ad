@@ -1,5 +1,6 @@
 package com.youzan.ad.entity;
 
+import com.youzan.ad.constant.CommonStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,7 +31,7 @@ public class AdPlan {
     private String planName;
 
     @Column(name = "plan_status")
-    private Integer planStatus;
+    private Integer planStatus = CommonStatus.VALID.getStatus();
 
     @Column(name = "start_date")
     private Date startDate;
@@ -43,4 +44,16 @@ public class AdPlan {
 
     @Column(name = "update_date")
     private Date updateDate;
+
+    public AdPlan(Long userId, String planName,
+                  Date startDate, Date endDate) {
+        this.userId = userId;
+        this.planName = planName;
+        this.planStatus = CommonStatus.VALID.getStatus();
+        this.createDate = new Date();
+        this.updateDate = new Date();
+        this.startDate = startDate;
+        this.endDate = endDate;
+
+    }
 }
