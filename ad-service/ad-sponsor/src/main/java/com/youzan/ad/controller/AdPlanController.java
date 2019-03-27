@@ -24,7 +24,7 @@ public class AdPlanController {
     private AdPlanService adPlanService;
 
     /**
-     * 创建广告计划
+     *
      *
      * @param adPlanRequest
      * @return
