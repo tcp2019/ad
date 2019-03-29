@@ -12,11 +12,14 @@ import com.youzan.ad.vo.CreateUserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 /**
  * @Author TCP
  * @create 2019/3/27 10:51
  */
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
     @Autowired
     private AdUserRepository adUserRepository;
@@ -30,7 +33,7 @@ public class UserServiceImpl implements UserService {
 
             AdUser adUser = adUserRepository.findByUsername(createUserRequest.getUsername());
             if (null != adUser) {
-                throw new AdException(Constants.ErrorMsg.USER_NAME_ALREADY_EXIXT);
+                throw new AdException(Constants.ErrorMsg.USER_NAME_ALREADY_EXIST);
             }
             AdUser adNewUser = adUserRepository.save(new AdUser(createUserRequest.getUsername(), CommonUtils.md5(createUserRequest.getToken())));
             return new CreateUserResponse(adNewUser.getId(), adNewUser.getUsername(), adNewUser.getToken(), adNewUser.getCreateTime(), adNewUser.getUpdateTime());

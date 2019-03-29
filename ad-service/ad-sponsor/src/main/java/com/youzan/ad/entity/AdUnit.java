@@ -14,7 +14,7 @@ import java.util.Date;
  * 推广单元表
  */
 @Entity
-@Table(name = "ad_unit")
+@Table(name = "ad_unit_it")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -45,13 +45,13 @@ public class AdUnit {
     @Column(name = "update_time")
     private Date updateTime;
 
-    public AdUnit(Long planId, String unitName, Integer unitStatus, Integer positionType, Long budget, Date createTime, Date updateTime) {
+    public AdUnit(Long planId, String unitName, Integer positionType, Long budget) {
         this.planId = planId;
         this.unitName = unitName;
         this.unitStatus = CommonStatus.VALID.getStatus();
         this.positionType = positionType;
         this.budget = budget;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
+        this.createTime = new Date();
+        this.updateTime = new Date();
     }
 }

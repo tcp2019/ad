@@ -1,4 +1,4 @@
-package com.youzan.ad.entity;
+package com.youzan.ad.entity.unit_condition;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,22 +8,24 @@ import javax.persistence.*;
 
 /**
  * @Author TCP
- * @create 2019/3/26 16:41
- * 关键词限制
+ * @create 2019/3/26 15:49
+ * 创意与推广关联
+ *创意
  */
-@Table(name = "ad_unit_keyword")
+@Entity
+@Table(name = "creative_unit")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AdUnitKeyword {
+public class AdCreativeUnit {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "unit_id")
-    private Long unitId;
+    @Column(name = "creative_id")
+    private Long creativeId;
 
-    @Column(name = "keyword")
-    private String keyword;
+    @Column(name = "unit_id")
+    private Long  unitId;
 }

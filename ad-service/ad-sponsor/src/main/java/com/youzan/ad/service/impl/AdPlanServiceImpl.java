@@ -16,6 +16,7 @@ import com.youzan.ad.vo.AdPlanResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +26,7 @@ import java.util.Optional;
  * @create 2019/3/27 11:48
  */
 @Service
+@Transactional
 public class AdPlanServiceImpl implements AdPlanService {
     @Autowired
     private UserService userService;

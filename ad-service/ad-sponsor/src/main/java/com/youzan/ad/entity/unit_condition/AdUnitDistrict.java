@@ -1,4 +1,4 @@
-package com.youzan.ad.entity;
+package com.youzan.ad.entity.unit_condition;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

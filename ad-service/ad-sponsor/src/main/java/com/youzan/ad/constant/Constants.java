@@ -14,5 +14,7 @@ public class Constants {
         public static final String DATE_FORMAT_ERROR = "日期转换错误";
         public static final String PLAN_NAME_ALREADY_EXIST = "计划名称已经存在";
         public static final String CAN_NOT_FIND_PLAN = "当前计划不存在";
+        public static final String UNIT_NAME_ALREADY_EXIST = "该计划下的推广单元已存在";
+        public static final String CAN_NOT_FIND_UNIT = "推广单元不存在";
     }
 }
