@@ -12,10 +12,8 @@ import com.youzan.ad.entity.unit_condition.AdUnitKeyword;
 import com.youzan.ad.exception.AdException;
 import com.youzan.ad.service.AdUnitService;
 import com.youzan.ad.vo.*;
-import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import javax.transaction.Transactional;
 import java.util.Collections;

@@ -11,6 +11,7 @@ import javax.persistence.*;
  * @create 2019/3/26 16:41
  * 关键词限制
  */
+@Entity
 @Table(name = "ad_unit_keyword")
 @Data
 @AllArgsConstructor

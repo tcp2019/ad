@@ -1,6 +1,5 @@
 package com.youzan.ad.service.impl;
 
-import com.youzan.ad.constant.CommonStatus;
 import com.youzan.ad.constant.Constants;
 import com.youzan.ad.dao.AdUserRepository;
 import com.youzan.ad.entity.AdUser;

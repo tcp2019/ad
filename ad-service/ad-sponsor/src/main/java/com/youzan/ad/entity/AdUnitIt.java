@@ -11,6 +11,7 @@ import javax.persistence.*;
  * @create 2019/3/26 16:41
  * 兴趣限制
  */
+@Entity
 @Table(name = "ad_unit_it")
 @Data
 @AllArgsConstructor

@@ -2,7 +2,9 @@ package com.youzan.ad.service;
 
 import com.youzan.ad.entity.AdPlan;
 import com.youzan.ad.exception.AdException;
-import com.youzan.ad.vo.*;
+import com.youzan.ad.vo.AdPlanGetRequest;
+import com.youzan.ad.vo.AdPlanRequest;
+import com.youzan.ad.vo.AdPlanResponse;
 
 import java.util.List;
 

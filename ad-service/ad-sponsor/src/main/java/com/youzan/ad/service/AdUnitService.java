@@ -1,6 +1,5 @@
 package com.youzan.ad.service;
 
-import com.youzan.ad.entity.unit_condition.AdCreativeUnit;
 import com.youzan.ad.exception.AdException;
 import com.youzan.ad.vo.*;
 

@@ -3,11 +3,9 @@ package com.youzan.ad.controller;
 import com.youzan.ad.entity.AdPlan;
 import com.youzan.ad.exception.AdException;
 import com.youzan.ad.service.AdPlanService;
-import com.youzan.ad.utils.CommonUtils;
 import com.youzan.ad.vo.AdPlanGetRequest;
 import com.youzan.ad.vo.AdPlanRequest;
 import com.youzan.ad.vo.AdPlanResponse;
-import com.youzan.ad.vo.CommonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -54,7 +52,7 @@ public class AdPlanController {
      * @return
      * @throws AdException
      */
-    @PostMapping
+    @PostMapping(value = "/getPlan")
     public List<AdPlan> getPlan(@RequestBody AdPlanGetRequest adPlanGetRequest) throws AdException {
         return adPlanService.getPlan(adPlanGetRequest);
     }

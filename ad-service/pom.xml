@@ -12,6 +12,7 @@
     <modules>
         <module>ad-common</module>
         <module>ad-sponsor</module>
+        <module>adsearch</module>
     </modules>
     <artifactId>ad-service</artifactId>
 

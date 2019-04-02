@@ -1,8 +1,6 @@
 package com.youzan.ad.dao;
 
 import com.youzan.ad.entity.AdPlan;
-import com.youzan.ad.entity.AdUser;
-import com.youzan.ad.vo.AdPlanRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -10,6 +10,7 @@ import javax.persistence.*;
  * @Author TCP
  * @create 2019/3/26 16:41
  */
+@Entity
 @Table(name = "ad_unit-district")
 @Data
 @AllArgsConstructor

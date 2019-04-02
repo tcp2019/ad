@@ -1,4 +1,4 @@
-package com.youzan.ad.vo;
+package com.youzan.ad.client.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
