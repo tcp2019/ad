@@ -1,10 +1,10 @@
 package com.youzan.ad.index.adcreativeunit;
 
 import com.youzan.ad.index.IndexAware;
-import com.youzan.ad.index.adunit.AdUnitObject;
-import org.springframework.util.CollectionUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.CollectionUtils;
+import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -14,6 +14,8 @@ import java.util.concurrent.ConcurrentSkipListSet;
  * @Author TCP
  * @create 2019/4/2 11:43
  */
+@Slf4j
+@Component
 public class AdCreativeUnitIndex implements IndexAware<String, AdCreativeUnitObject> {
     /**
      * 定义全局变量map
@@ -68,11 +70,19 @@ public class AdCreativeUnitIndex implements IndexAware<String, AdCreativeUnitObj
 
     @Override
     public void update(String key, AdCreativeUnitObject value) {
-
+        log.error("暂不支持更新");
     }
 
     @Override
     public void delete(String key, AdCreativeUnitObject value) {
-
+        objectMap.remove(key);
+        Set<Long> creativeSet = creativeMap.get(value.getUnitId());
+        if (!CollectionUtils.isEmpty(creativeSet)) {
+            creativeSet.remove(value.getCreativeId());
+        }
+        Set<Long> unitSet = unitMap.get(value.getCreativeId());
+        if (CollectionUtils.isNotEmpty(unitSet)) {
+            unitSet.remove(value.getUnitId());
+        }
     }
 }
