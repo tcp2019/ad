@@ -1,20 +1,20 @@
 package java.com.youzan.ad.service;
 
 import com.alibaba.fastjson.JSON;
-import com.netflix.discovery.converters.Auto;
 import com.youzan.ad.constant.CommonStatus;
 import com.youzan.ad.dao.AdCreativeRepository;
 import com.youzan.ad.dao.AdPlanRepository;
 import com.youzan.ad.dao.AdUnitItRepository;
 import com.youzan.ad.dao.AdUnitRepository;
 import com.youzan.ad.dao.unit_condition.AdCreativeUnitRepository;
+import com.youzan.ad.dao.unit_condition.AdUnitDistrictRepository;
+import com.youzan.ad.dao.unit_condition.AdUnitKeywordRepository;
 import com.youzan.ad.dump.table.AdCreativeTable;
 import com.youzan.ad.dump.table.AdPlanTable;
 import com.youzan.ad.dump.table.AdUnitTable;
 import com.youzan.ad.entity.AdCreative;
 import com.youzan.ad.entity.AdPlan;
 import com.youzan.ad.entity.AdUnit;
-import com.youzan.ad.vo.AdUnitResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.com.youzan.ad.Application;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,14 +30,15 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * @Author TCP
  * @create 2019/4/3 14:27
  */
-@RunWith(SpringRunner.class)
+@Slf4j
 @SpringBootTest(classes = {Application.class},
         webEnvironment = SpringBootTest.WebEnvironment.NONE)
-@Slf4j
+@RunWith(SpringRunner.class)
 public class DumpDateService {
     @Autowired
     private AdPlanRepository adPlanRepository;
@@ -54,6 +54,14 @@ public class DumpDateService {
 
     @Autowired
     private AdUnitItRepository adUnitItRepository;
+
+    @Autowired
+    private AdUnitKeywordRepository adUnitKeywordRepository;
+
+    @Autowired
+    private AdUnitDistrictRepository adUnitDistrictRepository;
+
+
 
     private void dumpAdPlanTable(String fileName) {
         //查询出所有处于有效状态的推广单元
@@ -146,4 +154,105 @@ public class DumpDateService {
             log.error(e.getMessage());
         }
     }
+    private void dumpCreativeDistrictTable(String fileName){
+
+        List<AdUnitDistrict> adUnitDistricts = adUnitDistrictRepository.findAll();
+        List<AdUnitDistrictTable> adUnitDistrictTables = new ArrayList<>();
+
+        adUnitDistricts.forEach(
+                i->adUnitDistrictTables.add(
+                        new AdUnitDistrictTable(
+                                i.getUnitId(),
+                                i.getProvince(),
+                                i.getCity()
+
+                        )
+                )
+        );
+
+        Path path = Paths.get(fileName);
+        try(BufferedWriter writer = Files.newBufferedWriter(path)){
+            for(AdUnitDistrictTable adUnitDistrictTable:adUnitDistrictTables){
+                writer.write(JSON.toJSONString(adUnitDistrictTable));
+                writer.newLine();
+            }
+            writer.close();
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+
+
+
+    private void dumpCreativeItTable(String fileName){
+
+        List<AdUnitIt> adUnitIts = adUnitItRepository.findAll();
+        List<AdUnitItTable> adUnitItTables = new ArrayList<>();
+
+        adUnitIts.forEach(
+                i->adUnitItTables.add(
+                        new AdUnitItTable(
+                                i.getUnitId(),
+                                i.getItTag()
+                        )
+
+                )
+
+        );
+
+        Path path = Paths.get(fileName);
+        try(BufferedWriter writer = Files.newBufferedWriter(path)){
+            for(AdUnitItTable adUnitItTable:adUnitItTables){
+                writer.write(JSON.toJSONString(adUnitItTable));
+                writer.newLine();
+            }
+            writer.close();
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+
+
+    private void dumpCreativeKeyWord(String fileName){
+
+        List<AdUnitKeyword> adUnitKeywords = adUnitKeywordRepository.findAll();
+        List<AdUnitKeywordTable> adUnitItTables = new ArrayList<>();
+
+        adUnitKeywords.forEach(
+                i->adUnitItTables.add(
+                        new AdUnitKeywordTable(
+                                i.getUnitId(),
+                                i.getKeyword()
+                        )
+
+                )
+
+        );
+
+        Path path = Paths.get(fileName);
+        try(BufferedWriter writer = Files.newBufferedWriter(path)){
+            for(AdUnitKeywordTable adUnitItTable:adUnitItTables){
+                writer.write(JSON.toJSONString(adUnitItTable));
+                writer.newLine();
+            }
+            writer.close();
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+
 }

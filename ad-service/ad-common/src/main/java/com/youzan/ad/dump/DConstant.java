@@ -8,7 +8,7 @@ public class DConstant {
     /**
      * 设置文件生成的目录
      */
-    public static final String DATA_ROOT_DIR = "D:/youzan-ad-data";
+    public static final String DATA_ROOT_DIR = "D:/youzan-ad-data/";
 
     /**
      * 设置各个表生成的文件名
