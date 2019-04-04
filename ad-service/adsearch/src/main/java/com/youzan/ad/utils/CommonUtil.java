@@ -27,4 +27,19 @@ public class CommonUtil {
     public static <K, V> V getValue(K key, Map<K, V> map, Supplier<V> supplier) {
         return map.computeIfAbsent(key, K -> supplier.get());
     }
+
+    /**
+     * 以"-"形式拼接字符串
+     *
+     * @param args
+     * @return
+     */
+    public static String stringConcat(String... args) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String arg : args) {
+            stringBuilder.append(arg);
+            stringBuilder.append("-");
+        }
+        return stringBuilder.deleteCharAt(stringBuilder.length() - 1).toString();
+    }
 }

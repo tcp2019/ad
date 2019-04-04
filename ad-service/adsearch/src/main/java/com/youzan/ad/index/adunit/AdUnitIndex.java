@@ -9,6 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @Author TCP
  * @create 2019/4/2 11:21
+ * 正排索引
  */
 public class AdUnitIndex implements IndexAware<Long, AdUnitObject> {
     //定义全局变量map

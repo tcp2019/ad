@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UnitKeywordTable {
     private String keyword;
-    private Integer unitId;
+    private Long unitId;
 }

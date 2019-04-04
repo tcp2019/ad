@@ -19,6 +19,8 @@ import java.util.concurrent.ConcurrentSkipListSet;
 public class AdCreativeUnitIndex implements IndexAware<String, AdCreativeUnitObject> {
     /**
      * 定义全局变量map
+     * key:creativeId-unitId
+     * value:AdCreativeUnitObject
      */
     private static Map<String, AdCreativeUnitObject> objectMap;
     /**

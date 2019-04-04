@@ -19,6 +19,8 @@ import java.util.concurrent.ConcurrentSkipListSet;
 public class UnitDistrictIndex implements IndexAware<String, Set<Long>> {
     /**
      * 定义全局局变量
+     * key:省-市
+     * value:Set<Long>
      */
     private static Map<String, Set<Long>> districtUnitMap;
 

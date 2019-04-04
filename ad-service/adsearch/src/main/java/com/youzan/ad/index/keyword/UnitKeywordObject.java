@@ -14,5 +14,5 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NoArgsConstructor
 public class UnitKeywordObject {
     private String keyword;
-    private Integer unitId;
+    private Long unitId;
 }
