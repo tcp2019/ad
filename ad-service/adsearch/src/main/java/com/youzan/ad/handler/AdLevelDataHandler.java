@@ -57,7 +57,7 @@ public class AdLevelDataHandler {
      * @param adCreativeTable
      * @param optionType
      */
-    public static void handleLevl2(AdCreativeTable adCreativeTable, OptionType optionType) {
+    public static void handleLevel2(AdCreativeTable adCreativeTable, OptionType optionType) {
         //将adCreativeTable 转换为adCreativeObject
         AdCreativeObject adCreativeObject = new AdCreativeObject(
                 adCreativeTable.getCreateiveId(),

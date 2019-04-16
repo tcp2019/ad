@@ -14,7 +14,7 @@ import java.util.Date;
  * 推广单元表
  */
 @Entity
-@Table(name = "ad_unit_it")
+@Table(name = "ad_unit")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
