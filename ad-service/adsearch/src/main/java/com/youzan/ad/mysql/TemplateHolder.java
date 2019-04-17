@@ -28,6 +28,8 @@ import java.util.Map;
 public class TemplateHolder {
     @Autowired
     private static JdbcTemplate jdbcTemplate;
+    @Autowired
+    private static ParseTemplate parseTemplate;
 
     /**
      * 解析template.json文件
@@ -51,6 +53,10 @@ public class TemplateHolder {
     @PostConstruct
     private void init() {
         loadJson("template.json");
+    }
+
+    public TableTemplate getTable(String tableName) {
+        return parseTemplate.getTableTemplateMap().get(tableName);
     }
 
     /**

@@ -1,5 +1,10 @@
 package com.youzan.ad.utils;
 
+import org.apache.commons.lang.time.DateUtils;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import java.util.function.Supplier;
 
@@ -41,5 +46,16 @@ public class CommonUtil {
             stringBuilder.append("-");
         }
         return stringBuilder.deleteCharAt(stringBuilder.length() - 1).toString();
+    }
+
+    public static Date parseStringDate(String date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+        try {
+            Date parse = simpleDateFormat.parse(date);
+            return DateUtils.addHours(parse, -8);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
